@@ -27,7 +27,10 @@ jobs:
           cache: 'pnpm'
 
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+
+      - name: Check lint
+        run: pnpm lint
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
